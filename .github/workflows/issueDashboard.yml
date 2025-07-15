@@ -11,9 +11,9 @@ jobs:
       uses: actions/github-script@0.8.0
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
-      script: |
-            github.projects.createCard({
-            column_id: {{columnID}},
-            content_id: context.payload.issue.id,
-            content_type: "Issue"
-            });
+        script: |
+              github.projects.createCard({
+              column_id: {{columnID}},
+              content_id: context.payload.issue.id,
+              content_type: "Issue"
+              });
