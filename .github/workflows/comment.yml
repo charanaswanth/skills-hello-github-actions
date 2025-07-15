@@ -10,11 +10,11 @@ jobs:
     - name: comment issues
       uses: actions/github-script@0.8.0
       with:
-        github-token: {% raw %}${{secrets.GITHUB_TOKEN}}{% endraw %}
-      script: |
-        github.create.comment({
-        issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: "🎉 You've created this issue comment using GitHub Script!!!"
-        })
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          github.create.comment({
+          issue_number: context.issue.number,
+          owner: context.repo.owner,
+          repo: context.repo.repo,
+          body: "🎉 You've created this issue comment using GitHub Script!!!"
+          })
