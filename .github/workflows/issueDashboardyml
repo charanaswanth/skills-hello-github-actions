@@ -1,0 +1,19 @@
+name: Dashboard issues
+on:
+  issues:
+    type: [opened]
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Dashboard issues
+      uses: actions/github-script@0.8.0
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+      script: |
+            github.projects.createCard({
+            column_id: {{columnID}},
+            content_id: context.payload.issue.id,
+            content_type: "Issue"
+            });
